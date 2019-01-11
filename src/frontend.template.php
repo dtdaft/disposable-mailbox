@@ -30,7 +30,7 @@ function niceDate($date) {
 
 
 <!doctype html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -77,11 +77,11 @@ function niceDate($date) {
 
 <div id="new-content-avalable">
     <div class="alert alert-info alert-fixed" role="alert">
-        <strong>New emails</strong> have arrived.
+        <strong>Email(s)</strong> reçu(s).
 
         <button type="button" class="btn btn-outline-secondary" onclick="location.reload()">
             <i class="fas fa-sync"></i>
-            Reload!
+            Recharger
         </button>
 
     </div>
@@ -92,21 +92,21 @@ function niceDate($date) {
 <header>
     <div class="container">
         <p class="lead ">
-            Your disposable mailbox is ready.
+            Votre boîte aux lettres jetable est prête.
         </p>
         <div class="row" id="address-box-normal">
 
             <div class="col my-address-block">
-                <span id="my-address"><?php echo $user->address ?></span>&nbsp;<button class="copy-button" data-clipboard-target="#my-address">Copy</button>
+                <span id="my-address"><?php echo $user->address ?></span>&nbsp;<button class="copy-button" data-clipboard-target="#my-address">Copier</button>
             </div>
 
 
             <div class="col get-new-address-col">
                 <button type="button" class="btn btn-outline-dark"
-                        data-toggle="collapse" title="choose your own address"
+                        data-toggle="collapse" title="choisissez votre propre adresse"
                         data-target=".change-address-toggle"
                         aria-controls="address-box-normal address-box-edit" aria-expanded="false">
-                    <i class="fas fa-magic"></i> Change address
+                    <i class="fas fa-magic"></i> Changement d'adresse
                 </button>
             </div>
         </div>
@@ -118,21 +118,21 @@ function niceDate($date) {
                     <p>
                         <a href="?action=random" role="button" class="btn btn-dark">
                             <i class="fa fa-random"></i>
-                            Open random mailbox
+                            Boîte aux lettres aléatoire
                         </a>
                     </p>
 
 
-                    or create your own address:
+                    ou créez votre propre adresse :
                     <div class="form-row align-items-center">
                         <div class="col-sm">
-                            <label class="sr-only" for="inlineFormInputName">username</label>
+                            <label class="sr-only" for="inlineFormInputName">Nom d'utilisateur</label>
                             <input name="username" type="text" class="form-control" id="inlineFormInputName"
-                                   placeholder="username"
+                                   placeholder="Nom d'utilisateur"
                                    value="<?php echo $user->username ?>">
                         </div>
                         <div class="col-sm-auto my-1">
-                            <label class="sr-only" for="inlineFormInputGroupUsername">Domain</label>
+                            <label class="sr-only" for="inlineFormInputGroupUsername">Domaine</label>
                             <div class="input-group">
                                 <div class="input-group-prepend">
                                     <div class="input-group-text">@</div>
@@ -151,7 +151,7 @@ function niceDate($date) {
                             </div>
                         </div>
                         <div class="col-auto my-1">
-                            <button type="submit" class="btn btn-primary">Open mailbox</button>
+                            <button type="submit" class="btn btn-primary">Ouvrir la boîte aux lettres</button>
                         </div>
                     </div>
 
@@ -208,7 +208,7 @@ function niceDate($date) {
                                 <a class="btn btn-outline-primary btn-sm" download="true"
                                    role="button"
                                    href="<?php echo "?action=download_email&email_id=$safe_email_id&address=$user->address" ?>">
-                                    Download
+                                    Télécharger
                                 </a>
 
                                 <a class="btn btn-outline-danger btn-sm"
@@ -251,73 +251,65 @@ function niceDate($date) {
             <?php
             if (empty($emails)) { ?>
                 <div id="empty-mailbox">
-                    <p>Emails will appear here automatically. </p>
+                    <p style="text-align:center">Les e-mails apparaîtront ici automatiquement</p>
                     <div class="spinner">
-                        <div class="rect1"></div>
-                        <div class="rect2"></div>
-                        <div class="rect3"></div>
-                        <div class="rect4"></div>
-                        <div class="rect5"></div>
-                    </div>
+  <div class="rect1"></div>
+  <div class="rect2"></div>
+  <div class="rect3"></div>
+  <div class="rect4"></div>
+  <div class="rect5"></div>
+</div>
                 </div>
             <?php } ?>
         </div>
     </div>
 </main>
 
+
+    
 <footer>
     <div class="container">
 
 
-        <!--        <select id="language-selection" class="custom-select" title="Language">-->
-        <!--            <option selected>English</option>-->
-        <!--            <option value="1">Deutsch</option>-->
-        <!--            <option value="2">Two</option>-->
-        <!--            <option value="3">Three</option>-->
-        <!--        </select>-->
-        <!--        <br>-->
+
 
         <small class="text-justify quick-summary">
-            This is a disposable mailbox service. Whoever knows your username, can read your emails.
-            Emails will be deleted after 30 days.
+            Ceci est un service de boîte aux lettres jetable. Quiconque connaît votre nom d'utilisateur peut lire vos courriels.
+            Les courriels seront supprimés après 30 jours.
             <a data-toggle="collapse" href="#about"
                aria-expanded="false"
                aria-controls="about">
-                Show Details
+                Afficher les détails
             </a>
         </small>
-        <div class="card card-body collapse" id="about" style="max-width: 40rem">
+        <div class="card card-body collapse" id="about">
 
-            <p class="text-justify">This disposable mailbox keeps your main mailbox clean from spam.</p>
+            <p class="text-justify">Cette boîte aux lettres jetable garde votre boîte aux lettres principale à l’abri du spam.</p>
 
-            <p class="text-justify">Just choose an address and use it on websites you don't trust and
-                don't
-                want to use
-                your
-                main email address.
-                Once you are done, you can just forget about the mailbox. All the spam stays here and does
-                not
-                fill up
-                your
-                main mailbox.
+            <p class="text-justify">Choisissez simplement une adresse et utilisez-la sur des sites Web auxquels vous ne faites pas confiance et
+                où vous ne voulez pas utiliser
+                votre
+                adresse e-mail principale.
+                Une fois que vous avez terminé, vous pouvez simplement oublier la boîte aux lettres. Tout le spam reste ici et
+                ne
+                rempli pas
+                votre
+                boîte aux lettres principale.
             </p>
 
             <p class="text-justify">
-                You select the address you want to use and received emails will be displayed
-                automatically.
-                There is no registration and no passwords. If you know the address, you can read the
-                emails.
-                <strong>Basically, all emails are public. So don't use it for sensitive data.</strong>
+                Vous sélectionnez l'adresse que vous souhaitez utiliser et les emails reçus seront affichés
+                automatiquement.
+                Il n'y a pas d'inscription et pas de mots de passe. Si vous connaissez l'adresse, vous pouvez lire les
+                courriels.
+                <strong>Fondamentalement, tous les courriels sont publics. Donc, ne l'utilisez pas pour des données sensibles.</strong>
 
 
             </p>
         </div>
 
         <p>
-            <small>Powered by
-                <a
-                        href="https://github.com/synox/disposable-mailbox"><strong>synox/disposable-mailbox</strong></a>
-            </small>
+            
         </p>
     </div>
 </footer>
@@ -344,7 +336,7 @@ function niceDate($date) {
     /** from https://github.com/twbs/bootstrap/blob/c11132351e3e434f6d4ed72e5a418eb692c6a319/assets/js/src/application.js */
     clipboard.on('success', function (e) {
         $(e.trigger)
-            .attr('title', 'Copied!')
+            .attr('title', 'Copié !')
             .tooltip('_fixTitle')
             .tooltip('show')
             .tooltip('_fixTitle');
